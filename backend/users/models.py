@@ -33,5 +33,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)  # only for django admin
 
+    access_level = models.SmallIntegerField(default=0)
+
     objects = UserManager()
     all_objects = UserManager(archived_too=True)
