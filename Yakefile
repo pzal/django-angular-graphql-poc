@@ -1,0 +1,28 @@
+# Helpers
+dcompose: docker-compose -f infrastructure/dev/docker-compose.yml $CMD
+rm-pycache: find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+
+# Initial setup
+configure:
+  - cp ./infrastructure/dev/config.env.dist ./infrastructure/dev/config.env
+  - echo 'Configure ./infrastructure/dev/config.env'
+
+setup_api:
+  - $BIN manage migrate
+  - $BIN manage createsuperuser --email admin@example.com
+  - $BIN manage shell < backend/users/fixtures/create_test_users.py
+
+setup:
+  - rm -rf ./frontend/app/node_modules
+  - $BIN app yarn
+  - $BIN setup_api
+
+# Development
+shell: $BIN dcompose run api bash $CMD
+sp: $BIN manage shell_plus $CMD
+manage: $BIN dcompose run api python manage.py $CMD
+sync_deps: $BIN dcompose build api $CMD
+app: $BIN dcompose run app $CMD
+
+up: $BIN dcompose up $CMD
+down: $BIN dcompose down $CMD
