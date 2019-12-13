@@ -196,62 +196,6 @@ export const COSMIC_THEME = {
       thirdItem: baseThemeVariables.bg2,
     },
 
-    visitors: {
-      tooltipBg: baseThemeVariables.bg,
-      tooltipLineColor: 'rgba(0, 0, 0, 0)',
-      tooltipLineWidth: '1',
-      tooltipBorderColor: baseThemeVariables.border2,
-      tooltipExtraCss: 'border-radius: 10px; padding: 8px 24px;',
-      tooltipTextColor: baseThemeVariables.fgText,
-      tooltipFontWeight: 'normal',
-      tooltipFontSize: '20',
-
-      axisLineColor: baseThemeVariables.border4,
-      axisFontSize: '16',
-      axisTextColor: baseThemeVariables.fg,
-      yAxisSplitLine: baseThemeVariables.separator,
-
-      itemBorderColor: baseThemeVariables.primary,
-      lineStyle: 'dotted',
-      lineWidth: '6',
-      lineGradFrom: '#ffffff',
-      lineGradTo: '#ffffff',
-      lineShadow: 'rgba(0, 0, 0, 0)',
-
-      areaGradFrom: baseThemeVariables.primary,
-      areaGradTo: baseThemeVariables.primaryLight,
-
-      innerLineStyle: 'solid',
-      innerLineWidth: '1',
-
-      innerAreaGradFrom: baseThemeVariables.success,
-      innerAreaGradTo: baseThemeVariables.success,
-    },
-
-    visitorsLegend: {
-      firstIcon: baseThemeVariables.success,
-      secondIcon: baseThemeVariables.primary,
-    },
-
-    visitorsPie: {
-      firstPieGradientLeft: baseThemeVariables.success,
-      firstPieGradientRight: baseThemeVariables.successLight,
-      firstPieShadowColor: 'rgba(0, 0, 0, 0)',
-      firstPieRadius: ['70%', '90%'],
-
-      secondPieGradientLeft: baseThemeVariables.warning,
-      secondPieGradientRight: baseThemeVariables.warningLight,
-      secondPieShadowColor: 'rgba(0, 0, 0, 0)',
-      secondPieRadius: ['60%', '95%'],
-      shadowOffsetX: '0',
-      shadowOffsetY: '3',
-    },
-
-    visitorsPieLegend: {
-      firstSection: baseThemeVariables.warning,
-      secondSection: baseThemeVariables.success,
-    },
-
     earningPie: {
       radius: ['65%', '100%'],
       center: ['50%', '50%'],
