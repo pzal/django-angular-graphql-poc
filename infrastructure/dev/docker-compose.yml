@@ -22,15 +22,15 @@ services:
     image: node:12.13
     volumes:
       - ../../frontend/app:/code:delegated
+      - app_node_modules:/code/node_modules
     working_dir: /code
     env_file:
       - ./config.env
     environment:
-      # TODO does it work with angular?
-      - PORT=3001
+      - PORT=4200
     command: yarn start
     ports:
-      - 3001:3001
+      - 4200:4200
   postgres:
     image: postgres:12.1-alpine
     volumes:
@@ -43,3 +43,4 @@ volumes:
   log_data:
   tmp_data:
   postgres_data:
+  app_node_modules:
