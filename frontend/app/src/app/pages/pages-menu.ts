@@ -16,20 +16,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'layout-outline',
     children: [
       {
-        title: 'Stepper',
-        link: '/pages/layout/stepper',
-      },
-      {
-        title: 'List',
-        link: '/pages/layout/list',
-      },
-      {
         title: 'Infinite List',
         link: '/pages/layout/infinite-list',
-      },
-      {
-        title: 'Accordion',
-        link: '/pages/layout/accordion',
       },
       {
         title: 'Tabs',
