@@ -108,27 +108,6 @@ export const CORPORATE_THEME = {
       tooltipFontWeight: 'normal',
     },
 
-    countryOrders: {
-      countryBorderColor: baseThemeVariables.border4,
-      countryFillColor: baseThemeVariables.bg4,
-      countryBorderWidth: '1',
-      hoveredCountryBorderColor: baseThemeVariables.primary,
-      hoveredCountryFillColor: baseThemeVariables.primaryLight,
-      hoveredCountryBorderWidth: '1',
-
-      chartAxisLineColor: baseThemeVariables.border4,
-      chartAxisTextColor: baseThemeVariables.fg,
-      chartAxisFontSize: '16',
-      chartGradientTo: baseThemeVariables.primary,
-      chartGradientFrom: baseThemeVariables.primaryLight,
-      chartAxisSplitLine: baseThemeVariables.separator,
-      chartShadowLineColor: baseThemeVariables.primaryLight,
-
-      chartLineBottomShadowColor: baseThemeVariables.primary,
-
-      chartInnerLineColor: baseThemeVariables.bg2,
-    },
-
     echarts: {
       bg: baseThemeVariables.bg,
       textColor: baseThemeVariables.fgText,

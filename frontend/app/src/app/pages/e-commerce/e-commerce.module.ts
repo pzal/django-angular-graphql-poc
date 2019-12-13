@@ -45,16 +45,7 @@ import { ECommerceUserActivityComponent } from './user-activity/user-activity.co
 import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
 import { SlideOutComponent } from './slide-out/slide-out.component';
 
-import { CountryOrdersComponent } from './country-orders/country-orders.component';
-import { CountryOrdersMapComponent } from './country-orders/map/country-orders-map.component';
-import { CountryOrdersMapService } from './country-orders/map/country-orders-map.service';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { CountryOrdersChartComponent } from './country-orders/chart/country-orders-chart.component';
-import { EarningCardComponent } from './earning-card/earning-card.component';
-import { EarningCardBackComponent } from './earning-card/back-side/earning-card-back.component';
-import { EarningPieChartComponent } from './earning-card/back-side/earning-pie-chart.component';
-import { EarningCardFrontComponent } from './earning-card/front-side/earning-card-front.component';
-import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earning-live-update-chart.component';
 
 @NgModule({
   imports: [
@@ -90,9 +81,6 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     TrafficBackCardComponent,
     TrafficBarComponent,
     TrafficCardsHeaderComponent,
-    CountryOrdersComponent,
-    CountryOrdersMapComponent,
-    CountryOrdersChartComponent,
     ECommerceVisitorsAnalyticsComponent,
     ECommerceVisitorsAnalyticsChartComponent,
     ECommerceVisitorsStatisticsComponent,
@@ -100,14 +88,8 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     ECommerceUserActivityComponent,
     ECommerceProgressSectionComponent,
     SlideOutComponent,
-    EarningCardComponent,
-    EarningCardFrontComponent,
-    EarningCardBackComponent,
-    EarningPieChartComponent,
-    EarningLiveUpdateChartComponent,
   ],
   providers: [
-    CountryOrdersMapService,
   ],
 })
 export class ECommerceModule { }
