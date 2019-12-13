@@ -6,9 +6,7 @@ import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
-  AnalyticsService,
   LayoutService,
-  PlayerService,
   StateService,
 } from './utils';
 import { UserData } from './data/users';
@@ -20,14 +18,11 @@ import { ProfitChartData } from './data/profit-chart';
 import { EarningData } from './data/earning';
 import { OrdersProfitChartData } from './data/orders-profit-chart';
 import { ProfitBarAnimationChartData } from './data/profit-bar-animation-chart';
-import { TemperatureHumidityData } from './data/temperature-humidity';
 import { SolarData } from './data/solar';
 import { StatsBarData } from './data/stats-bar';
 import { StatsProgressBarData } from './data/stats-progress-bar';
-import { SecurityCamerasData } from './data/security-cameras';
 
 import { UserService } from './mock/users.service';
-import { ElectricityService } from './mock/electricity.service';
 import { SmartTableService } from './mock/smart-table.service';
 import { UserActivityService } from './mock/user-activity.service';
 import { OrdersChartService } from './mock/orders-chart.service';
@@ -35,11 +30,8 @@ import { ProfitChartService } from './mock/profit-chart.service';
 import { EarningService } from './mock/earning.service';
 import { OrdersProfitChartService } from './mock/orders-profit-chart.service';
 import { ProfitBarAnimationChartService } from './mock/profit-bar-animation-chart.service';
-import { TemperatureHumidityService } from './mock/temperature-humidity.service';
-import { SolarService } from './mock/solar.service';
 import { StatsBarService } from './mock/stats-bar.service';
 import { StatsProgressBarService } from './mock/stats-progress-bar.service';
-import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 
 const socialLinks = [
@@ -62,7 +54,6 @@ const socialLinks = [
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },
-  { provide: ElectricityData, useClass: ElectricityService },
   { provide: SmartTableData, useClass: SmartTableService },
   { provide: UserActivityData, useClass: UserActivityService },
   { provide: OrdersChartData, useClass: OrdersChartService },
@@ -70,11 +61,8 @@ const DATA_SERVICES = [
   { provide: EarningData, useClass: EarningService },
   { provide: OrdersProfitChartData, useClass: OrdersProfitChartService },
   { provide: ProfitBarAnimationChartData, useClass: ProfitBarAnimationChartService },
-  { provide: TemperatureHumidityData, useClass: TemperatureHumidityService },
-  { provide: SolarData, useClass: SolarService },
   { provide: StatsBarData, useClass: StatsBarService },
   { provide: StatsProgressBarData, useClass: StatsProgressBarService },
-  { provide: SecurityCamerasData, useClass: SecurityCamerasService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {
@@ -122,9 +110,7 @@ export const NB_CORE_PROVIDERS = [
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
-  AnalyticsService,
   LayoutService,
-  PlayerService,
   StateService,
 ];
 

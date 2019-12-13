@@ -21,8 +21,6 @@ import { ProfitChartComponent } from './charts-panel/charts/profit-chart.compone
 import { ChartPanelHeaderComponent } from './charts-panel/chart-panel-header/chart-panel-header.component';
 import { ChartPanelSummaryComponent } from './charts-panel/chart-panel-summary/chart-panel-summary.component';
 import { ChartModule } from 'angular2-chartjs';
-import { StatsCardBackComponent } from './profit-card/back-side/stats-card-back.component';
-import { StatsAreaChartComponent } from './profit-card/back-side/stats-area-chart.component';
 import { StatsBarAnimationChartComponent } from './profit-card/front-side/stats-bar-animation-chart.component';
 import { StatsCardFrontComponent } from './profit-card/front-side/stats-card-front.component';
 import { ECommerceLegendChartComponent } from './legend-chart/legend-chart.component';
@@ -50,7 +48,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   declarations: [
     ECommerceComponent,
     StatsCardFrontComponent,
-    StatsAreaChartComponent,
     StatsBarAnimationChartComponent,
     ProfitCardComponent,
     ECommerceChartsPanelComponent,
@@ -58,7 +55,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     ChartPanelSummaryComponent,
     OrdersChartComponent,
     ProfitChartComponent,
-    StatsCardBackComponent,
     ECommerceLegendChartComponent,
     ECommerceUserActivityComponent,
     ECommerceProgressSectionComponent,
