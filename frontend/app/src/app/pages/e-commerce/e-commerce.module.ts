@@ -25,6 +25,8 @@ import { StatsBarAnimationChartComponent } from './profit-card/front-side/stats-
 import { StatsCardFrontComponent } from './profit-card/front-side/stats-card-front.component';
 import { ECommerceLegendChartComponent } from './legend-chart/legend-chart.component';
 import { ECommerceUserActivityComponent } from './user-activity/user-activity.component';
+import { ECommerceItemsComponent } from './items/items.component';
+import { ECommerceUsersComponent } from './users/users.component';
 import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -57,6 +59,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     ProfitChartComponent,
     ECommerceLegendChartComponent,
     ECommerceUserActivityComponent,
+    ECommerceItemsComponent,
+    ECommerceUsersComponent,
     ECommerceProgressSectionComponent,
   ],
   providers: [

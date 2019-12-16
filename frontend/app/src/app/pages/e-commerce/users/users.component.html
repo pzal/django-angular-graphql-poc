@@ -1,0 +1,30 @@
+<nb-card size="medium">
+  <div *ngIf="loading">
+      Loading...
+    </div>
+    <div *ngIf="error">
+      Error :(
+    </div>
+  <nb-card-header>
+    <span>Users</span>
+    <nb-select [selected]="type" (selectedChange)="getUserActivity($event); type = $event">
+      <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
+    </nb-select>
+  </nb-card-header>
+
+  <nb-list class="user-activity-list">
+    <nb-list-item *ngFor="let user of users">
+
+      <div class="visited-date">
+        {{ user.email }}
+      </div>
+
+      <div class="visited-pages-count">
+        <div class="caption">Access level</div>
+        <div class="value">{{ user.accessLevel }}</div>
+      </div>
+
+    </nb-list-item>
+  </nb-list>
+
+</nb-card>

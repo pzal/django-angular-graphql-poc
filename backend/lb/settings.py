@@ -35,6 +35,7 @@ LOCAL_APPS = ["users", "utils", "items"]
 
 INSTALLED_APPS = THIRD_PARTY_APPS + LOCAL_APPS
 
+SLEEP_TIME = 2
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -45,6 +46,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "lb.middleware.SleepMiddleware",
 ]
 
 ROOT_URLCONF = "lb.urls"

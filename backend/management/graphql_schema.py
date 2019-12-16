@@ -27,7 +27,10 @@ class MonitoringQuery(object):
     all_users = graphene.List(UserType)
 
     def resolve_all_items(self, info, **kwargs):
-        return Item.objects.all()
+        if info.context.user.is_authenticated:
+            return Item.objects.all()
+
+        return Item.objects.filter(access_level=0)
 
     def resolve_all_item_changes(self, info, **kwargs):
         return ItemChange.objects.all()
