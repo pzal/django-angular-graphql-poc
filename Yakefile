@@ -9,6 +9,7 @@ configure:
 
 setup_api:
   - $BIN manage migrate
+  - $BIN manage collectstatic
   - $BIN manage createsuperuser --email admin@example.com
   - $BIN manage shell < backend/users/fixtures/create_test_users.py
   - $BIN manage shell < backend/items/fixtures/create_test_items.py

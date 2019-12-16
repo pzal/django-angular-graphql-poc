@@ -20,11 +20,16 @@ THIRD_PARTY_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.staticfiles",
     "django_extensions",
     "corsheaders",
+    "graphene_django",
     "rest_framework",
     "rest_framework.authtoken",
 ]
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 LOCAL_APPS = ["users", "utils", "items"]
 
