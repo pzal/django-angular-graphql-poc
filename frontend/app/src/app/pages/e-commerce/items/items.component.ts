@@ -1,11 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
-import { takeWhile } from 'rxjs/operators';
+import { NbMenuService, NbThemeService, NbDialogService } from '@nebular/theme';
+import { EditItemDialogComponent } from './edit-item-dialog/edit-item-dialog'
+import { map, takeUntil, filter } from 'rxjs/operators';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 
 type Item = {
+  id: string;
   name: string;
   accessLevel: number;
 };
@@ -25,12 +27,17 @@ export class ECommerceItemsComponent {
 
   items: Item[] = [];
   loading = true;
-  error: any;
+  errors: any;
 
   type = 'month';
   types = ['week', 'month', 'year'];
 
-  constructor(private apollo: Apollo) {
+  ctxItems = [
+    { title: 'Edit', type: 'edit', component: 'my-comp' },
+    { title: 'Lorem ipsum', type: 'loremipsum', component: 'my-comp' }
+  ];
+
+  constructor(private apollo: Apollo, private menuService: NbMenuService, private dialogService: NbDialogService) {
   }
 
   ngOnInit() {
@@ -39,17 +46,28 @@ export class ECommerceItemsComponent {
         query: gql`
           {
             allItems {
+              id
               name
               accessLevel
             }
           }
         `,
       })
-      .valueChanges.subscribe(result => {
-        console.log(result)
-        this.items = result.data && result.data.allItems;
-        this.loading = result.loading;
-        this.error = result.error;
+      .valueChanges
+      .subscribe(({ data, loading, errors }) => {
+        this.items = data && data.allItems;
+        this.loading = loading;
+        this.errors = errors;
+      });
+
+    this.menuService.onItemClick()
+      .pipe(
+        filter(({ item: { component } }) => component === 'my-comp'),
+        map(({ tag }) => tag),
+      )
+      .subscribe(id => {
+        console.log(`ID ${id} was clicked!`)
+        this.dialogService.open(EditItemDialogComponent, { context: { itemId: id } })
       });
   }
 }

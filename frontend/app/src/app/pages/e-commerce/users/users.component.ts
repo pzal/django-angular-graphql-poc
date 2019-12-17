@@ -25,7 +25,7 @@ export class ECommerceUsersComponent {
 
   users: User[] = [];
   loading = true;
-  error: any;
+  errors: any;
 
   type = 'month';
   types = ['week', 'month', 'year'];
@@ -45,11 +45,11 @@ export class ECommerceUsersComponent {
           }
         `,
       })
-      .valueChanges.subscribe(result => {
-        console.log(result)
-        this.users = result.data && result.data.allUsers;
-        this.loading = result.loading;
-        this.error = result.error;
+      .valueChanges
+      .subscribe(({ data, loading, errors }) => {
+        this.users = data && data.allUsers;
+        this.loading = loading;
+        this.errors = errors;
       });
   }
 }

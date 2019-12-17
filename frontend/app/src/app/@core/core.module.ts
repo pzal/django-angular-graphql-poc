@@ -1,6 +1,7 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NbAuthModule, NbPasswordAuthStrategy, NbAuthSimpleToken, NbAuthSimpleInterceptor } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -67,19 +68,18 @@ export const NB_CORE_PROVIDERS = [
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        token: {
+          class: NbAuthSimpleToken,
+          key: 'token'
+        },
+        baseEndpoint: '',
+        login: {
+          endpoint: 'http://localhost:8000/users/api-token-auth/',
+        },
       }),
     ],
-    forms: {
-      login: {
-        socialLinks: socialLinks,
-      },
-      register: {
-        socialLinks: socialLinks,
-      },
-    },
   }).providers,
 
   NbSecurityModule.forRoot({
@@ -99,6 +99,7 @@ export const NB_CORE_PROVIDERS = [
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
+  { provide: HTTP_INTERCEPTORS, useClass: NbAuthSimpleInterceptor, multi: true },
   LayoutService,
   StateService,
 ];

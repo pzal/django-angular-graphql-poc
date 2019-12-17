@@ -1,0 +1,23 @@
+<form [formGroup]="changeItemForm" (ngSubmit)="onSave(changeItemForm.value)">
+    <nb-card>
+      <nb-card-header>Change this guy</nb-card-header>
+    <nb-card-body>
+      <div>
+          <div class='label'>Name for nr {{itemId}}</div>
+          <input formControlName='name' type="text" nbInput placeholder="Name…" fullWidth/>
+      </div>
+      <div class='access-level'>
+          <div class='label'>Access level</div>
+          <nb-select formControlName='accessLevel' placeholder="Access level" status='basic' size='large' fullWidth>
+          <nb-option value="1">Level 1</nb-option>
+          <nb-option value="2">Level 2</nb-option>
+          <nb-option value="3">Level 3</nb-option>
+          <nb-option value="4">Level 4</nb-option>
+          </nb-select>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button type='submit' nbButton>Save</button>
+    </nb-card-footer>
+  </nb-card>
+</form>

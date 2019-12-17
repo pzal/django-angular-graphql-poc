@@ -15,13 +15,19 @@
   <nb-list class="user-activity-list">
     <nb-list-item *ngFor="let item of items">
 
-      <div class="visited-date">
+      <div class="user-name">
         {{ item.name }}
       </div>
-
-      <div class="visited-pages-count">
+      
+      <div class="user-access-level">
         <div class="caption">Access level</div>
         <div class="value">{{ item.accessLevel }}</div>
+      </div>
+
+      <div class="user-more">
+        <button nbButton ghost status="primary" [nbContextMenu]="ctxItems" [nbContextMenuTag]="item.id" nbContextMenuPlacement="bottom">
+          <nb-icon icon="more-horizontal-outline"></nb-icon>
+        </button>
       </div>
 
     </nb-list-item>

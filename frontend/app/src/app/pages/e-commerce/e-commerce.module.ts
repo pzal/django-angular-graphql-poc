@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   NbButtonModule,
   NbCardModule,
@@ -8,6 +9,11 @@ import {
   NbIconModule,
   NbSelectModule,
   NbListModule,
+  NbMenuModule,
+  NbContextMenuModule,
+  NbDialogModule,
+  NbInputModule,
+  NbDialogService
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -26,6 +32,7 @@ import { StatsCardFrontComponent } from './profit-card/front-side/stats-card-fro
 import { ECommerceLegendChartComponent } from './legend-chart/legend-chart.component';
 import { ECommerceUserActivityComponent } from './user-activity/user-activity.component';
 import { ECommerceItemsComponent } from './items/items.component';
+import { EditItemDialogComponent } from './items/edit-item-dialog/edit-item-dialog';
 import { ECommerceUsersComponent } from './users/users.component';
 import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
 
@@ -40,12 +47,17 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     NbIconModule,
     NbTabsetModule,
     NbSelectModule,
+    NbInputModule,
     NbListModule,
+    NbMenuModule,
+    NbContextMenuModule,
     ChartModule,
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,
     LeafletModule,
+    NbDialogModule.forChild(),
+    ReactiveFormsModule,
   ],
   declarations: [
     ECommerceComponent,
@@ -62,8 +74,11 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     ECommerceItemsComponent,
     ECommerceUsersComponent,
     ECommerceProgressSectionComponent,
+    EditItemDialogComponent
   ],
+  entryComponents: [EditItemDialogComponent],
   providers: [
+    NbDialogService,
   ],
 })
 export class ECommerceModule { }

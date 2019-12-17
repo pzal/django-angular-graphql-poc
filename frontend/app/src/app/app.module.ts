@@ -21,11 +21,11 @@ import {
 import {
   NbChatModule,
   NbDatepickerModule,
-  NbDialogModule,
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
+  NbDialogModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -43,6 +43,7 @@ import {
 
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    NbDialogModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),

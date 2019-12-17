@@ -35,7 +35,7 @@ LOCAL_APPS = ["users", "utils", "items"]
 
 INSTALLED_APPS = THIRD_PARTY_APPS + LOCAL_APPS
 
-SLEEP_TIME = 2
+SLEEP_TIME = 1
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
