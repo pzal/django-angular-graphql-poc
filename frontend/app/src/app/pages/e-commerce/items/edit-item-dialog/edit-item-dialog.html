@@ -1,14 +1,14 @@
-<form [formGroup]="changeItemForm" (ngSubmit)="onSave(changeItemForm.value)">
+<form (ngSubmit)="onSave()">
     <nb-card>
       <nb-card-header>Change this guy</nb-card-header>
     <nb-card-body>
       <div>
           <div class='label'>Name for nr {{itemId}}</div>
-          <input formControlName='name' type="text" nbInput placeholder="Name…" fullWidth/>
+          <input name='name' [(ngModel)]='name' type="text" nbInput placeholder="Name…" fullWidth/>
       </div>
       <div class='access-level'>
           <div class='label'>Access level</div>
-          <nb-select formControlName='accessLevel' placeholder="Access level" status='basic' size='large' fullWidth>
+          <nb-select name='accessLevel' [(ngModel)]='accessLevel' placeholder="Access level" status='basic' size='large' fullWidth>
           <nb-option value="1">Level 1</nb-option>
           <nb-option value="2">Level 2</nb-option>
           <nb-option value="3">Level 3</nb-option>

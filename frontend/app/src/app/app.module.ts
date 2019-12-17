@@ -57,11 +57,23 @@ import {
     provide: APOLLO_OPTIONS,
     useFactory: (httpLink: HttpBatchLink) => {
       return {
-        cache: new InMemoryCache(),
+        cache: new InMemoryCache({
+          cacheRedirects: {
+            Query: {
+              item: (_, args, { getCacheKey }) =>
+                getCacheKey({ __typename: 'ItemType', id: args.id })
+            },
+          }
+        }),
         link: httpLink.create({
           uri: "http://localhost:8000/management/",
           batchInterval: 50,
-        })
+        }),
+        defaultOptions: {
+          watchQuery: {
+            errorPolicy: 'none'
+          }
+        }
       }
     },
     deps: [HttpBatchLink]

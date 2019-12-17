@@ -4,6 +4,14 @@ import { takeWhile } from 'rxjs/operators';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
+export const USERS_QUERY = gql`
+  {
+    allUsers {
+      email
+      accessLevel
+    }
+  }
+`
 
 type User = {
   email: string;
@@ -36,14 +44,7 @@ export class ECommerceUsersComponent {
   ngOnInit() {
     this.apollo
       .watchQuery<Response>({
-        query: gql`
-          {
-            allUsers {
-              email
-              accessLevel
-            }
-          }
-        `,
+        query: USERS_QUERY,
       })
       .valueChanges
       .subscribe(({ data, loading, errors }) => {

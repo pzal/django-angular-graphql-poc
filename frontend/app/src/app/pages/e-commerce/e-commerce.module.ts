@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   NbButtonModule,
   NbCardModule,
@@ -58,6 +58,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     LeafletModule,
     NbDialogModule.forChild(),
     ReactiveFormsModule,
+    FormsModule,
   ],
   declarations: [
     ECommerceComponent,

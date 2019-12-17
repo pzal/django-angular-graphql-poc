@@ -78,6 +78,9 @@ export const NB_CORE_PROVIDERS = [
         login: {
           endpoint: 'http://localhost:8000/users/api-token-auth/',
         },
+        logout: {
+          endpoint: 'http://localhost:8000/logout',
+        },
       }),
     ],
   }).providers,

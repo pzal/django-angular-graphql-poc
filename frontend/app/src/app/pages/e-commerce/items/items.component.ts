@@ -5,6 +5,15 @@ import { map, takeUntil, filter } from 'rxjs/operators';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
+export const ITEMS_QUERY = gql`
+          {
+            allItems {
+              id
+              name
+              accessLevel
+            }
+          }
+        `
 
 type Item = {
   id: string;
@@ -15,7 +24,7 @@ type Item = {
 type Response = {
   allItems: Item[],
   loading: boolean,
-  error: any,
+  errors: any,
 };
 
 @Component({
@@ -43,18 +52,12 @@ export class ECommerceItemsComponent {
   ngOnInit() {
     this.apollo
       .watchQuery<Response>({
-        query: gql`
-          {
-            allItems {
-              id
-              name
-              accessLevel
-            }
-          }
-        `,
+        errorPolicy: 'all',
+        query: ITEMS_QUERY,
       })
       .valueChanges
       .subscribe(({ data, loading, errors }) => {
+        console.log('here', data, loading, errors)
         this.items = data && data.allItems;
         this.loading = loading;
         this.errors = errors;
@@ -63,6 +66,7 @@ export class ECommerceItemsComponent {
     this.menuService.onItemClick()
       .pipe(
         filter(({ item: { component } }) => component === 'my-comp'),
+        filter(({ item: {type} }) => type === 'edit'),
         map(({ tag }) => tag),
       )
       .subscribe(id => {

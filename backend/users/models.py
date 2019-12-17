@@ -9,11 +9,14 @@ from utils.models import BaseModel, BaseModelManager
 
 
 class UserManager(BaseModelManager, BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self, email, password=None, access_level=None):
         if not email:
             raise ValueError("Users must have an email address")
 
         user = self.model(email=self.normalize_email(email))
+
+        if access_level:
+            user.access_level = access_level
 
         user.set_password(password)
         user.save(using=self._db)
@@ -23,6 +26,7 @@ class UserManager(BaseModelManager, BaseUserManager):
         user = self.create_user(email, password=password)
         user.is_superuser = True
         user.is_staff = True
+        user.access_level = 1000
         user.save(using=self._db)
         return user
 
